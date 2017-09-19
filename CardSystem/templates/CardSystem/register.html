@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+
+<form method="post" action="">
+    {% csrf_token %}
+    <br>username: <br>
+    <input type="text" name="username" id="username">
+    <span id="error1">{{ error1 }}</span>
+    <br>password: <br>
+    <input type="password" name="password" id="password">
+    <span id="error2">{{ error2 }}</span>
+    <br>confirm: <br>
+    <input type="password" name="password2" id="password2">
+    <span id="error3">{{ error3 }}</span>
+    <br><br>
+    <input type="submit" value="submit">
+</form>
+
+</body>
+</html>

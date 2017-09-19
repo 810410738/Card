@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from CardSystem import models
-
+from django.views.decorators.csrf import csrf_exempt
 
 # 首页
 def index(request):
@@ -56,3 +56,26 @@ def register(request):
                     return HttpResponseRedirect('/login')
     else:
         return render(request, 'CardSystem/register.html')
+
+
+#创建个人页面
+@csrf_exempt
+def edit(request):
+    if request.method == 'GET':
+        return render(request, 'CardSystem/edit.html')
+    elif request.method == 'POST':
+        username = request.session.get('login_user', "")
+        title = request.POST['title']
+        name = request.POST['name']
+        phone = request.POST['phone']
+        address = request.POST['address']
+        email = request.POST['email']
+        wechat = request.POST['wechat']
+        qq = request.POST['qq']
+        is_exist = models.Cards.objects.filter(username=username, title=title, name=name, phone=phone, address=address, email=email,
+                                               wechat=wechat, qq=qq)
+        if is_exist:
+            return HttpResponse("已经存在了")
+        else:
+            models.Cards(username=username, title=title, name=name, phone=phone, address=address, email=email, wechat=wechat, qq=qq).save()
+            return HttpResponse("创建成功！")

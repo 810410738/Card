@@ -33,6 +33,7 @@ class Cards(models.Model):
     image7 = models.FileField(upload_to=image_path)
     image8 = models.FileField(upload_to=image_path)
     image9 = models.FileField(upload_to=image_path)
+    time = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title

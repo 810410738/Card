@@ -1,16 +1,15 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from CardSystem import models
-
+from django.views.decorators.csrf import csrf_exempt
 import re
-
-
 # **** 一些共享变量 ****
 name_regex = r'[a-zA-Z0-9]{6,18}'
 pass_regex = r'[\w\W]{8,18}'
 check_name = re.compile(name_regex)
 check_pass = re.compile(pass_regex)
 # **** 一些共享变量 ****
+
 
 
 # 首页
@@ -80,6 +79,35 @@ def register(request):
         return render(request, 'CardSystem/register.html')
 
 
+
 # 名片页面
 def card(request):
     pass
+
+#创建个人页面
+@csrf_exempt
+def edit(request):
+    if request.method == 'GET':
+        return render(request, 'CardSystem/edit.html')
+    elif request.method == 'POST':
+        username = request.session.get('login_user', "")
+        title = request.POST['title']
+        name = request.POST['name']
+        phone = request.POST['phone']
+        address = request.POST['address']
+        email = request.POST['email']
+        wechat = request.POST['wechat']
+        qq = request.POST['qq']
+        is_exist = models.Cards.objects.filter(username=username, title=title, name=name, phone=phone, address=address, email=email,
+                                               wechat=wechat, qq=qq)
+        if is_exist:
+            return HttpResponse("已经存在了")
+        else:
+            models.Cards(username=username, title=title, name=name, phone=phone, address=address, email=email, wechat=wechat, qq=qq).save()
+            return HttpResponse("创建成功！")
+
+@csrf_exempt
+def messages(request):
+    if request.method == 'GET':
+        return render(request, 'CardSystem/messages.html')
+

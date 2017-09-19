@@ -38,7 +38,7 @@ def login(request):
             if is_matched:
                 request.session['login_user'] = username                # 登陆成功记录session信息
                 request.session['message'] = 'welcome, ' + username     # 返回登陆成功信息
-                return HttpResponseRedirect('/index')
+                return HttpResponseRedirect('/card/index')
             else:
                 return render(request, 'CardSystem/login.html', {'error2': '用户名不存在或者密码错误!'})
         else:

@@ -6,14 +6,22 @@
 </head>
 <body>
 
-<form method="post" action="">
+<table>
+    <tr>
+        <td><a href="{% url 'card:index' %}">首页</a></td>
+    </tr>
+</table>
+
+<span style="color: green;">{{ message }}</span>
+
+<form method="post" action="{% url 'card:login' %}">
     {% csrf_token %}
     <br>username: <br>
     <input type="text" name="username" id="username">
-    <span id="error1">{{ error1 }}</span>
+    <span id="error1" style="color: red;">{{ error1 }}</span>
     <br>password: <br>
     <input type="password" name="password" id="password">
-    <span id="error2">{{ error2 }}</span>
+    <span id="error2" style="color: red;">{{ error2 }}</span>
     <br><br>
     <input type="submit" value="submit">
 </form>

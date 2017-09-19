@@ -1,2 +1,10 @@
 
+<<<<<<< HEAD
+=======
+.idea/workspace.xml
+Card/__pycache__/settings.cpython-35.pyc
+*.pyc
+*.pyc
+Card/__pycache__/settings.cpython-35.pyc
+>>>>>>> master
 *.pyc

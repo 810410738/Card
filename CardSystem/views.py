@@ -79,3 +79,8 @@ def edit(request):
         else:
             models.Cards(username=username, title=title, name=name, phone=phone, address=address, email=email, wechat=wechat, qq=qq).save()
             return HttpResponse("创建成功！")
+
+@csrf_exempt
+def messages(request):
+    if request.method == 'GET':
+        return render(request, 'CardSystem/messages.html')

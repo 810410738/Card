@@ -17,11 +17,10 @@ check_pass = re.compile(pass_regex)
 # 目前只显示欢迎信息
 def index(request):
     # 若已登录则显示欢迎信息
-    message = request.session.get('message', '')
+    isLogin = request.session.get('login_user', '')
     params = {}
-    if message != '':
-        params['message'] = message
-        del request.session['message']
+    if isLogin != '':
+        params['message'] = isLogin
     return render(request, 'CardSystem/index.html', params)
 
 
@@ -37,14 +36,13 @@ def login(request):
             is_matched = models.Users.objects.filter(username=username, password=password)  # 查找输入是否匹配
             if is_matched:
                 request.session['login_user'] = username                # 登陆成功记录session信息
-                request.session['message'] = 'welcome, ' + username     # 返回登陆成功信息
-                return HttpResponseRedirect('/index')
+                return HttpResponseRedirect('/card/index')
             else:
                 return render(request, 'CardSystem/login.html', {'error2': '用户名不存在或者密码错误!'})
         else:
             return render(request, 'CardSystem/login.html', {'error1': '用户名只能由数字和字母组成!'})
     else:
-        message = request.session.get('message', '')    # 显示注册成功信息
+        message = request.session.get('message', '')    # 若是由注册成功跳转则显示注册成功信息
         if message != '':
             del request.session['message']
             return render(request, 'CardSystem/login.html', {'message': message})
@@ -72,7 +70,7 @@ def register(request):
                     else:                                               # 输入合法, 将数据插入数据表
                         models.Users.objects.create(username=username, password=password)
                         request.session['message'] = '注册成功!'
-                        return HttpResponseRedirect('/card/login')
+                        return HttpResponseRedirect('/card/login')      # 注册成功, 跳转
                 else:
                     return render(request, 'CardSystem/register.html', {'error2': '密码长度为8-18位!'})
         else:                                                           # 用户名出现数字和字母以外的字符
@@ -82,9 +80,23 @@ def register(request):
 
 
 
+# 用户退出
+def leave(request):
+    del request.session['login_user']              # 清除用户登陆状态session
+    del request.session['message']                 # 清除未读取的信息
+    return HttpResponseRedirect('/card/index')     # 返回主页
+
+
 # 名片页面
-def card(request):
-    pass
+# [未完成] 如果是名片的所有者则显示编辑选项, 否则不可编辑
+def card(request, card_id):
+    check = models.Cards.objects.filter(pk=card_id)
+    if check:
+        cards = models.Cards.objects.get(pk=card_id)
+        return render(request, 'CardSystem/card.html', {'card': cards})
+    else:
+        return render(request, '404')
+
 
 #创建个人页面
 @csrf_exempt
@@ -112,4 +124,5 @@ def edit(request):
 def messages(request):
     if request.method == 'GET':
         return render(request, 'CardSystem/messages.html')
+
 

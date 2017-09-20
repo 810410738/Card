@@ -26,6 +26,7 @@ def index(request):
 
 
 # 登录页面 [基本OK]
+@csrf_exempt
 def login(request):
     if request.method == 'POST':
         username = request.POST.get('username', '')
@@ -51,6 +52,7 @@ def login(request):
 
 
 # 注册页面 [基本OK]
+@csrf_exempt
 def register(request):
     if request.method == 'POST':
         username = request.POST.get('username', '')

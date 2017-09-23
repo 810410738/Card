@@ -83,7 +83,7 @@ def register(request):
 # 用户退出
 def leave(request):
     del request.session['login_user']              # 清除用户登陆状态session
-    del request.session['message']                 # 清除未读取的信息
+    # del request.session['message']                 # 清除未读取的信息
     return HttpResponseRedirect('/card/index')     # 返回主页
 
 
@@ -102,6 +102,9 @@ def card(request, card_id):
 @csrf_exempt
 def edit(request):
     if request.method == 'GET':
+        if request.session.get('login_user', "") == "":
+            text = {'fail': '请先登陆！'}
+            return render(request, 'CardSystem/fail.html', text)
         return render(request, 'CardSystem/edit.html')
     elif request.method == 'POST':
         username = request.session.get('login_user', "")
@@ -114,12 +117,17 @@ def edit(request):
         qq = request.POST['qq']
         is_exist = models.Cards.objects.filter(username=username, title=title, name=name, phone=phone, address=address, email=email,
                                                wechat=wechat, qq=qq)
+        text = {
+            'fail': "已经存在了！",
+            'success': '创建成功！',
+        }
         if is_exist:
-            return HttpResponse("已经存在了")
+            return render(request, 'CardSystem/fail.html', text)
         else:
             models.Cards(username=username, title=title, name=name, phone=phone, address=address, email=email, wechat=wechat, qq=qq).save()
-            return HttpResponse("创建成功！")
+            return render(request, 'CardSystem/success.html', text)
 
+#留言页面
 @csrf_exempt
 def messages(request):
     if request.method == 'GET':

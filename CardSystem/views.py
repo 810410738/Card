@@ -13,8 +13,7 @@ check_pass = re.compile(pass_regex)
 
 
 # 首页
-# [最终要修改成显示名片列表信息]
-# 目前只显示欢迎信息
+# 显示欢迎信息和名片列表
 def index(request):
     # 若已登录则显示欢迎信息
     if request.method == 'GET':
@@ -93,9 +92,9 @@ def leave(request):
 # 名片页面
 # [未完成] 如果是名片的所有者则显示编辑选项, 否则不可编辑
 def card(request, card_id):
-    check = models.Cards.objects.filter(pk=card_id)
+    check = models.Cards.objects.filter(id=card_id)
     if check:
-        cards = models.Cards.objects.get(pk=card_id)
+        cards = models.Cards.objects.get(id=card_id)
         return render(request, 'CardSystem/card.html', {'card': cards})
     else:
         return render(request, '404')

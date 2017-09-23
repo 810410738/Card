@@ -28,12 +28,13 @@
 
 <div class="weui-panel__bd">
     {% for list in lists%}
+                <a href="/card/{{list.id}}">
                 <div class="weui-media-box weui-media-box_text">
                     <h4 class="weui-media-box__title">{{ list.title }}</h4>
                     <p class="weui-media-box__desc">{{list.name}}, {{list.phone}}, {{list.address}}, {{list.email}}
                         , {{list.wechat}}, {{list.qq}} , <span>{{list.time}}</span></p>
                 </div>
-
+                </a>
 
     {% endfor %}
 </div>

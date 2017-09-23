@@ -6,6 +6,11 @@
     <link href="https://cdn.bootcss.com/weui/1.1.1/style/weui.min.css" rel="stylesheet">
 
     <title>Home</title>
+    <style>
+        span{
+            color: red;
+        }
+    </style>
 </head>
 <body>
 
@@ -13,21 +18,25 @@
     <tr>
         <td><a href="{% url 'card:login' %}">登录</a></td>
         <td><a href="{% url 'card:register' %}">注册</a></td>
+        <td><a href="{% url 'card:leave' %}">退出登陆</a></td>
+        <td><a href="{% url 'card:edit' %}"> 创建个人名片</a></td>
+        <td>{{ message }}</td>
     </tr>
 </table>
 
 
 
 <div class="weui-panel__bd">
+    {% for list in lists%}
+                <a href="/card/{{list.id}}">
                 <div class="weui-media-box weui-media-box_text">
-                    <h4 class="weui-media-box__title">标题一</h4>
-                    <p class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+                    <h4 class="weui-media-box__title">{{ list.title }}</h4>
+                    <p class="weui-media-box__desc">{{list.name}}, {{list.phone}}, {{list.address}}, {{list.email}}
+                        , {{list.wechat}}, {{list.qq}} , <span>{{list.time}}</span></p>
                 </div>
+                </a>
 
-                <div class="weui-media-box weui-media-box_text">
-                    <h4 class="weui-media-box__title">标题二</h4>
-                    <p class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
-                </div>
+    {% endfor %}
 </div>
 
 

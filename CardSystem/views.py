@@ -13,15 +13,17 @@ check_pass = re.compile(pass_regex)
 
 
 # 首页
-# [最终要修改成显示名片列表信息]
-# 目前只显示欢迎信息
+# 显示欢迎信息和名片列表
 def index(request):
     # 若已登录则显示欢迎信息
-    isLogin = request.session.get('login_user', '')
-    params = {}
-    if isLogin != '':
-        params['message'] = isLogin
-    return render(request, 'CardSystem/index.html', params)
+    if request.method == 'GET':
+        isLogin = request.session.get('login_user', '')
+        params = {}
+        if isLogin != '':
+            params['message'] = isLogin
+        lists = models.Cards.objects.all()
+        params['lists'] = lists
+        return render(request, 'CardSystem/index.html', params)
 
 
 # 登录页面 [基本OK]
@@ -83,16 +85,16 @@ def register(request):
 # 用户退出
 def leave(request):
     del request.session['login_user']              # 清除用户登陆状态session
-    del request.session['message']                 # 清除未读取的信息
+    # del request.session['message']                 # 清除未读取的信息
     return HttpResponseRedirect('/card/index')     # 返回主页
 
 
 # 名片页面
 # [未完成] 如果是名片的所有者则显示编辑选项, 否则不可编辑
 def card(request, card_id):
-    check = models.Cards.objects.filter(pk=card_id)
+    check = models.Cards.objects.filter(id=card_id)
     if check:
-        cards = models.Cards.objects.get(pk=card_id)
+        cards = models.Cards.objects.get(id=card_id)
         return render(request, 'CardSystem/card.html', {'card': cards})
     else:
         return render(request, '404')
@@ -102,6 +104,9 @@ def card(request, card_id):
 @csrf_exempt
 def edit(request):
     if request.method == 'GET':
+        if request.session.get('login_user', "") == "":
+            text = {'fail': '请先登陆！'}
+            return render(request, 'CardSystem/fail.html', text)
         return render(request, 'CardSystem/edit.html')
     elif request.method == 'POST':
         username = request.session.get('login_user', "")
@@ -114,12 +119,17 @@ def edit(request):
         qq = request.POST['qq']
         is_exist = models.Cards.objects.filter(username=username, title=title, name=name, phone=phone, address=address, email=email,
                                                wechat=wechat, qq=qq)
+        text = {
+            'fail': "已经存在了！",
+            'success': '创建成功！',
+        }
         if is_exist:
-            return HttpResponse("已经存在了")
+            return render(request, 'CardSystem/fail.html', text)
         else:
             models.Cards(username=username, title=title, name=name, phone=phone, address=address, email=email, wechat=wechat, qq=qq).save()
-            return HttpResponse("创建成功！")
+            return render(request, 'CardSystem/success.html', text)
 
+#留言页面
 @csrf_exempt
 def messages(request):
     if request.method == 'GET':

@@ -21,15 +21,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CardSystem/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-971">
-              <caret line="105" column="20" lean-forward="true" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="20" />
+            <state relative-caret-position="325">
+              <caret line="24" column="42" lean-forward="true" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
-                <element signature="e#424#623#0" expanded="false" />
-                <element signature="e#1741#3307#0" expanded="false" />
+                <element signature="e#1868#3434#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -58,12 +57,9 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CardSystem/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
+            <state relative-caret-position="1248">
               <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-              <folding>
-                <element signature="e#266#1352#0" expanded="false" />
-                <element signature="e#1619#1902#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -83,18 +79,18 @@
       <file leaf-file-name="edit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CardSystem/templates/CardSystem/edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2784">
+            <state relative-caret-position="2496">
               <caret line="58" column="7" lean-forward="false" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CardSystem/templates/CardSystem/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="41" column="14" lean-forward="true" selection-start-line="36" selection-start-column="3" selection-end-line="41" selection-end-column="14" />
+            <state relative-caret-position="48">
+              <caret line="10" column="23" lean-forward="false" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -136,6 +132,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>leave</find>
+      <find>index</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -145,10 +142,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/CardSystem/templates/CardSystem/edit.html" />
-        <option value="$PROJECT_DIR$/CardSystem/templates/CardSystem/index.html" />
         <option value="$PROJECT_DIR$/CardSystem/templates/CardSystem/fail.html" />
         <option value="$PROJECT_DIR$/CardSystem/templates/CardSystem/success.html" />
         <option value="$PROJECT_DIR$/CardSystem/views.py" />
+        <option value="$PROJECT_DIR$/CardSystem/templates/CardSystem/index.html" />
       </list>
     </option>
   </component>
@@ -416,10 +413,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="672">
           <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding>
-            <element signature="e#266#1352#0" expanded="false" />
-            <element signature="e#1619#1902#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -467,8 +461,7 @@
           <caret line="111" column="22" lean-forward="true" selection-start-line="111" selection-start-column="22" selection-end-line="111" selection-end-column="22" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#424#623#0" expanded="false" />
-            <element signature="e#1741#3307#0" expanded="false" />
+            <element signature="e#1868#3434#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -497,8 +490,7 @@
           <caret line="73" column="31" lean-forward="true" selection-start-line="73" selection-start-column="31" selection-end-line="73" selection-end-column="31" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#424#623#0" expanded="false" />
-            <element signature="e#1741#3307#0" expanded="false" />
+            <element signature="e#1868#3434#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -507,10 +499,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="672">
           <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding>
-            <element signature="e#266#1352#0" expanded="false" />
-            <element signature="e#1619#1902#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -592,8 +581,7 @@
           <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#424#623#0" expanded="false" />
-            <element signature="e#1741#3307#0" expanded="false" />
+            <element signature="e#1868#3434#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -620,10 +608,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="987">
           <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding>
-            <element signature="e#266#1352#0" expanded="false" />
-            <element signature="e#1619#1902#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -633,8 +618,7 @@
           <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#424#623#0" expanded="false" />
-            <element signature="e#1741#3307#0" expanded="false" />
+            <element signature="e#1868#3434#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -698,8 +682,7 @@
           <caret line="29" column="52" lean-forward="false" selection-start-line="29" selection-start-column="52" selection-end-line="29" selection-end-column="52" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#424#623#0" expanded="false" />
-            <element signature="e#1741#3307#0" expanded="false" />
+            <element signature="e#1868#3434#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -746,8 +729,7 @@
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#424#623#0" expanded="false" />
-            <element signature="e#1741#3307#0" expanded="false" />
+            <element signature="e#1868#3434#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -786,17 +768,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CardSystem/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding>
-            <element signature="e#266#1352#0" expanded="false" />
-            <element signature="e#1619#1902#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CardSystem/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -827,22 +798,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CardSystem/templates/CardSystem/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="41" column="14" lean-forward="true" selection-start-line="36" selection-start-column="3" selection-end-line="41" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardSystem/templates/CardSystem/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2784">
-          <caret line="58" column="7" lean-forward="false" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CardSystem/templates/CardSystem/fail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -859,15 +814,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CardSystem/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1248">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CardSystem/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-971">
-          <caret line="105" column="20" lean-forward="true" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="20" />
+        <state relative-caret-position="325">
+          <caret line="24" column="42" lean-forward="true" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#424#623#0" expanded="false" />
-            <element signature="e#1741#3307#0" expanded="false" />
+            <element signature="e#1868#3434#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardSystem/templates/CardSystem/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2496">
+          <caret line="58" column="7" lean-forward="false" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardSystem/templates/CardSystem/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="10" column="23" lean-forward="false" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>

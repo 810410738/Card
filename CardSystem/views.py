@@ -17,11 +17,14 @@ check_pass = re.compile(pass_regex)
 # 目前只显示欢迎信息
 def index(request):
     # 若已登录则显示欢迎信息
-    isLogin = request.session.get('login_user', '')
-    params = {}
-    if isLogin != '':
-        params['message'] = isLogin
-    return render(request, 'CardSystem/index.html', params)
+    if request.method == 'GET':
+        isLogin = request.session.get('login_user', '')
+        params = {}
+        if isLogin != '':
+            params['message'] = isLogin
+        lists = models.Cards.objects.all()
+        params['lists'] = lists
+        return render(request, 'CardSystem/index.html', params)
 
 
 # 登录页面 [基本OK]

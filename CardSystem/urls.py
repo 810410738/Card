@@ -26,5 +26,5 @@ urlpatterns = [
     url(r'^(?P<card_id>[\d]+)/$', views.card, name='card'), # 名片页面
     url(r'^edit/$', views.edit, name='edit'),               # 退出处理
     url(r'^messages/$', views.messages, name='messages'),
-
+    url(r'^test/$', views.test, name='test'),               # 测试页面
 ]

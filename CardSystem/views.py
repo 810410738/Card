@@ -3,13 +3,14 @@ from django.http import HttpResponseRedirect, HttpResponse
 from CardSystem import models
 from django.views.decorators.csrf import csrf_exempt
 import re
+
+
 # **** 一些共享变量 ****
 name_regex = r'[a-zA-Z0-9]{6,18}'
 pass_regex = r'[\w\W]{8,18}'
 check_name = re.compile(name_regex)
 check_pass = re.compile(pass_regex)
 # **** 一些共享变量 ****
-
 
 
 # 首页
@@ -82,9 +83,12 @@ def register(request):
 
 # 用户退出
 def leave(request):
-    del request.session['login_user']              # 清除用户登陆状态session
-    del request.session['message']                 # 清除未读取的信息
-    return HttpResponseRedirect('/card/index')     # 返回主页
+    isLogin = request.session.get('login_user', '')
+    if isLogin != '':
+        del request.session['login_user']              # 清除用户登陆状态session
+        del request.session['message']                 # 清除未读取的信息
+        return HttpResponseRedirect('/card/index')     # 返回主页
+    return HttpResponse("请先登录")
 
 
 # 名片页面
@@ -95,7 +99,7 @@ def card(request, card_id):
         cards = models.Cards.objects.get(pk=card_id)
         return render(request, 'CardSystem/card.html', {'card': cards})
     else:
-        return render(request, '404')
+        return HttpResponse("404 Not Found")
 
 
 #创建个人页面
@@ -119,6 +123,7 @@ def edit(request):
         else:
             models.Cards(username=username, title=title, name=name, phone=phone, address=address, email=email, wechat=wechat, qq=qq).save()
             return HttpResponse("创建成功！")
+
 
 @csrf_exempt
 def messages(request):

@@ -23,8 +23,8 @@ urlpatterns = [
     url(r'^login/$', views.login, name='login'),            # 登陆页面
     url(r'^register/$', views.register, name='register'),   # 注册页面
     url(r'^leave/$', views.leave, name='leave'),            # 退出处理
-    url(r'^<card_id>[\d]+/$', views.card, name='card'),     # 名片页面
-    url(r'^edit/$', views.edit, name='edit'),
+    url(r'^(?P<card_id>[\d]+)/$', views.card, name='card'), # 名片页面
+    url(r'^edit/$', views.edit, name='edit'),               # 退出处理
     url(r'^messages/$', views.messages, name='messages'),
 
 ]

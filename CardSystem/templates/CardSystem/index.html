@@ -1,13 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset='utf-8'>
+ <!--微信UI-->
+    <link href="https://cdn.bootcss.com/weui/1.1.1/style/weui.min.css" rel="stylesheet">
+
     <title>Home</title>
+    <style>
+        span{
+            color: red;
+        }
+    </style>
 </head>
 <body>
 
-<h1>index page</h1>
-<p>{{ message }}</p>
+<table>
+    <tr>
+        <td><a href="{% url 'card:login' %}">登录</a></td>
+        <td><a href="{% url 'card:register' %}">注册</a></td>
+        <td><a href="{% url 'card:leave' %}">退出登陆</a></td>
+        <td><a href="{% url 'card:edit' %}"> 创建个人名片</a></td>
+        <td>{{ message }}</td>
+    </tr>
+</table>
 
+
+
+<div class="weui-panel__bd">
+    {% for list in lists%}
+                <a href="/card/{{list.id}}">
+                <div class="weui-media-box weui-media-box_text">
+                    <h4 class="weui-media-box__title">{{ list.title }}</h4>
+                    <p class="weui-media-box__desc">{{list.name}}, {{list.phone}}, {{list.address}}, {{list.email}}
+                        , {{list.wechat}}, {{list.qq}} , <span>{{list.time}}</span></p>
+                </div>
+                </a>
+
+    {% endfor %}
+</div>
+
+
+   <div class="weui-footer weui-footer_fixed-bottom">
+            <p class="weui-footer__links">
+                <a class="weui-footer__link" href="javascript:home();">Intelligent Card System</a>
+            </p>
+            <p class="weui-footer__text">Copyright © 2017 S.S.H & Jerry</p>
+        </div>
 </body>
 </html>

@@ -1,7 +1,5 @@
 
-.idea/workspace.xml
-Card/__pycache__/settings.cpython-35.pyc
+*.sqlite3
 *.pyc
-*.pyc
-Card/__pycache__/settings.cpython-35.pyc
-*.pyc
+
+
